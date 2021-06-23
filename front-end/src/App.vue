@@ -1,32 +1,33 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <button v-on:click="getData">get</button>
+    {{ api }}
     <router-view/>
   </div>
 </template>
+<script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+import axios from 'axios'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  name: 'App',
+  data: function () {
+    return {
+      api: 'asdf'
+    }
+  },
+  methods: {
+    getData: function () {
+      const vm = this
+      axios.get('http://localhost:8080/api/v1/index')
+        .then(function (response) {
+          vm.api = response.data
+        })
     }
   }
 }
+</script>
+
+<style lang="scss">
+
 </style>
