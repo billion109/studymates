@@ -1,1 +1,1 @@
-리드미
+npm install jquery popper.js bootstrap --save
