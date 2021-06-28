@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-    @GetMapping(value={"/","login"})
+    @GetMapping(value={"/","login", "register"})
     public String entry(){
         return "index";
     }
+
 }
